@@ -1,13 +1,17 @@
-variable = {'p':0, 'q':1, 'r':2}
+ variable = {'p':0, 'q':1, 'r':2}
 priority = {'v': 1, '^': 2, '~': 3 }
+
 
 def isoperand(c):
     return c.isalpha() and c  != 'v'
+
 def haslessEqual(c1, c2):
     try:
         return priority[c1] <= priority[c2]
     except KeyError:
         return False
+
+
 def toPosfix(infix):
     stack = []
     posfix = ''
@@ -29,10 +33,13 @@ def toPosfix(infix):
                     posfix += stack.pop()
                     
                 stack.append(c)
-   while len(stack) != 0:
+
+    while len(stack) != 0:
         posfix += stack.pop()
 
     return posfix
+
+
 def eval(post, comb):
     stack = []
     for i in post:
@@ -49,7 +56,10 @@ def eval(post, comb):
                 stack.append(val1 and val2)
             else:
                 stack.append(val1 or val2)
+
     return stack.pop()
+
+
 def check():
     kb=(input("Enter the knowledge base: "))
     query=(input("Enter the query: "))
