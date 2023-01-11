@@ -98,3 +98,18 @@ main()
 # sample input
 # PvQ PvR ~PvR RvS Rv~Q ~Sv~Q
 # R
+#output
+#Enter the kb:
+#(P^Q)<=>R : (Rv~P)v(Rv~Q)^(~RvP)^(~RvQ)
+#Enter the query:
+#R
+#Step	|Clause	|Derivation	
+#------------------------------
+# 1.	| (P^Q)<=>R	| Given.	
+# 2.	| :	| Given.	
+# 3.	| (Rv~P)v(Rv~Q)^(~RvP)^(~RvQ)	| Given.	
+# 4.	| ~R	| Negated conclusion.	
+# 5.	| PvQ	| Resolved from (P^Q)<=>R and ~R.	
+# 6.	| 	| Resolved (Rv~P)v(Rv~Q)^(~RvP)^(~RvQ) and ~R to Rv~R, which is in turn null.                             
+#A contradiction is found when ~R is assumed as true. Hence, R is true.	
+> 
